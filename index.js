@@ -44,20 +44,15 @@ function kivalaszt(event){
   kep.src = `kepek/${event.target.id}.PNG`
   gepvalasztasa(event.target.id)
 }
-
+const TIPPLISTA = ["ko", "papir", "ollo"]
 function gepvalasztasa(jatekosvalasztas){
   /*véletlen számok generálása, számok alapján kiválasztás*/
   const kep = document.querySelector("#gep img")
   console.log(kep)
   let veletlen = Math.floor(Math.random()*3)
   console.log(veletlen)
-  if (veletlen == 0){
-    kep.src = "kepek/ko.PNG"
-  }else if(veletlen == 1){
-    kep.src = "kepek/papir.PNG"
-  }else{
-    kep.src = "kepek/ollo.PNG"
-  } 
+  let gepTipp = TIPPLISTA(veletlen)
+  kep.src = `kepek/${gepTipp}.PNG`
   ellenorzes(veletlen, jatekosvalasztas)
 }
 
